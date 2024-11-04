@@ -1,10 +1,13 @@
-# wireframe_mobile
+# wireframe_mobile-main
 
 A new Flutter project.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+
+Change the name project:
+wireframe_mobile-main
 
 A few resources to get you started if this is your first Flutter project:
 
