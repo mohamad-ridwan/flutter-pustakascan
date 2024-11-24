@@ -64,7 +64,7 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/
-    - assets/model/
+    - assets/model/model_unquant.tflite
     - assets/animations/
     - assets/image/
     - assets/icons/

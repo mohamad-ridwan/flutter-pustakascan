@@ -131,31 +131,23 @@ class ScannerPage extends ConsumerWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
                                 children: [
-                                  Text(
-                                    value.label,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  Text(
-                                    "Akurasinya adalah: ${value.confidence.toStringAsFixed(0)}%",
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                  if (value.confidence < 80)
-                                    const Text(
-                                      "Akurasi di bawah 80%, disarankan harap difoto ulang.",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.red,
+                                  // Menampilkan label dan confidence hanya jika confidence >= 80
+                                  if (value.confidence >= 80) ...[
+                                    Text(
+                                      value.label,
+                                      style: const TextStyle(
+                                        fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                      textAlign: TextAlign.center,
-                                    )
-                                  else
+                                    ),
+                                    const SizedBox(height: 12),
+                                    Text(
+                                      "Akurasinya adalah: ${value.confidence.toStringAsFixed(0)}%",
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 12),
                                     const Text(
                                       "Buku tervalidasi sempurna.",
                                       style: TextStyle(
@@ -165,6 +157,27 @@ class ScannerPage extends ConsumerWidget {
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
+                                  ] else ...[
+                                    // Jika confidence kurang dari 80, tampilkan teks "Tidak terdeteksi"
+                                    const Text(
+                                      "Tidak terdeteksi.",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    const Text(
+                                      "Akurasinya adalah: 0%",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
                                   const SizedBox(height: 12),
                                   ElevatedButton(
                                     onPressed: () => ref

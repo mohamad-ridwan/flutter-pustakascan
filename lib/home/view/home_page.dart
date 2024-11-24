@@ -52,7 +52,8 @@ class HomePage extends ConsumerWidget {
                       children: [
                         Text(
                           'Selamat Datang di Aplikasi!',
-                          style: AppStyle.textTitleBOLD.copyWith(fontSize: 28),
+                          style: AppStyle.textTitleBOLD.copyWith(fontSize: 18),
+                          textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 8),
                         Text(
